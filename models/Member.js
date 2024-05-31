@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { token } = require('morgan');
 
 const memberSchema = new mongoose.Schema({
 //email  pass name-surname phone address 
@@ -10,6 +11,7 @@ const memberSchema = new mongoose.Schema({
     address: String,
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now },
+    token : String,
 
     bookings: [
         {
