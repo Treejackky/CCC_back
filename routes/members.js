@@ -17,10 +17,12 @@ router.post('/', async (req, res, next) => {
     try{
         const newMember = new Member(req.body);
         const savedMember = await newMember.save();
+        
         res.json(savedMember);
     } catch (err) { 
         res.json({ message: err });
     }
 });
+
 
 module.exports = router;

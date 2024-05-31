@@ -9,7 +9,15 @@ const memberSchema = new mongoose.Schema({
     phone: String,
     address: String,
     created_at: { type: Date, default: Date.now },
-    updated_at: { type: Date, default: Date.now }
+    updated_at: { type: Date, default: Date.now },
+
+    bookings: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Booking'
+        }
+    ]
+    
 });
 
 module.exports = mongoose.model('Member', memberSchema);

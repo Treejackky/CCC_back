@@ -9,6 +9,8 @@ const hotelschema = new mongoose.Schema({
     r_sts: String,
     cam_sts: String,
     r_price: Number,
+    r_user: String,
+    r_booking: String,
 });
 
 module.exports = mongoose.model('Hotel', hotelschema);
