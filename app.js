@@ -16,19 +16,17 @@ const member_bk = require('./routes/member_bk');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb+srv://adisak2457:Aa049852!@cluster0.3ido0xc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('mongodb://adisak2457:H8dtBo9NN5Z3cO51@ac-lesrd9s-shard-00-00.3quprlh.mongodb.net:27017,ac-lesrd9s-shard-00-01.3quprlh.mongodb.net:27017,ac-lesrd9s-shard-00-02.3quprlh.mongodb.net:27017/?ssl=true&replicaSet=atlas-uqer9j-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0')
     .then(() => console.log('Connected to MongoDB...'))
-    .catch(err => console.error('Could not connect to MongoDB...'));
-
+    .catch(err => console.log(err));
 // path dir models
-
 var app = express();
 
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');
 
-//cors 
+//cors
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', '*');

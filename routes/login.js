@@ -6,12 +6,11 @@ const jwt = require('jsonwebtoken');
 
 router.post('/', async (req, res, next) => {
     try{
-        // login email and password 
         const member = await Member.findOne({ email: req .body.email, password: req.body.password });
+
         if (member) {
-            //create token Random string 20 characters
-            const token = jwt.sign({ email: member.email, _id: member._id }, 'secret_key', { expiresIn : '1h' });
-            member.token = token;
+            const token2 = jwt.sign({ email: member.email, _id: member._id }, 'secret_key', { expiresIn : '1h' });
+            member.token = token2;
             await member.save();
             res.json(member);
         } else {
