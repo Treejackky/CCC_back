@@ -8,11 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 const mongoose = require('mongoose');
-const bookings = require('./routes/bookings');
-const members = require('./routes/members');
-const hotels = require('./routes/hotels');
-const login = require('./routes/login');
-const member_bk = require('./routes/member_bk');
+const historys = require('./routes/historys');
+
 
 mongoose.Promise = global.Promise;
 
@@ -46,13 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // path dir models
-app.use('/bookings', bookings);
-app.use('/members', members);
-app.use('/hotels', hotels);
-//login 
-app.use('/login', login);
-//member_bk
-app.use('/member_bk', member_bk);
+app.use('/historys', historys);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

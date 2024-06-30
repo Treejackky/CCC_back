@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Hotel = require('../models/Hotel');
+const History = require('../models/History');
 
 //get all bookings
 router.get('/', async (req, res, next) => {
     try {
-        const hotels = await Hotel.find();
-        res.json(hotels);
+        const historys = await History.find();
+        res.json(historys);
     } catch (err) {
         res.json({ message: err });
     }
@@ -15,9 +15,9 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     try{
-        const newHotel = new Hotel(req.body);
-        const savedHotel = await newHotel.save();
-        res.json(savedHotel);
+        const newHistory = new History(req.body);
+        const savedHistory = await newHistory.save();
+        res.json(savedHistory);
     } catch (err) { 
         res.json({ message: err });
     }
